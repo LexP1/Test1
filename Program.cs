@@ -1,7 +1,16 @@
 ﻿// 1. Дано: массива строк 
 // Первоначанальный массив можно ввести с клавитуры, либо задать на старте выполнения алгоритма
 
-string [] arrayIn = {"hello world", "2", ";-)", "1234", "Hi!"};
+Console.Write("Please enter the Length of Initial Array: ");
+int arrayInLength = Convert.ToInt32(Console.ReadLine());
+string [] arrayIn = new string [arrayInLength];
+Console.WriteLine("Please enter StringArray with Enter devidor");
+for(int i = 0; i < arrayIn.Length; i++)
+{
+    arrayIn[i] = Console.ReadLine();
+}
+
+// string [] arrayIn = {"hello world", "2", ";-)", "1234", "Hi!"};
 string [] arrayOut = new string [ArrayNewSize(arrayIn)];
 Solve (arrayIn, arrayOut);
 File.WriteAllText("OutputArray.txt", PrintArray(arrayOut));
@@ -44,9 +53,7 @@ void Solve (string [] arrA, string [] arrB)
 string PrintArray (string [] arr)
 {
     string res = string.Empty;
-    
     int size = arr.Length;
-
     res = "[ ";
     for (int i = 0; i < size; i++)
     {
@@ -55,6 +62,3 @@ string PrintArray (string [] arr)
     res += " ]";
     return res;
 }
-
-
-
